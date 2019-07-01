@@ -39,7 +39,6 @@ public class PlayAgainPanel : MonoBehaviour
         mgr._arrPos = arrPosDefault;
         pos._teamFlag = false;
         _losserAndPlayAgainPanel.gameObject.SetActive(false);
-        _MoveLogicAlertPanel.gameObject.SetActive(true);
 
         _playAgainFlag = mgr._redKilledChess.Count + 1;
 

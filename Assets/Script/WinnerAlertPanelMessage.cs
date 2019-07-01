@@ -24,6 +24,16 @@ public class WinnerAlertPanelMessage : MonoBehaviour
             team = "黑";
         }
 
+        if (pos.CheckKingFace2Face())
+        {
+            if (team == "紅")
+            {
+                team = "黑";
+            }else{
+                team = "紅";
+            }
+        }
+
         this.gameObject.GetComponent<Text>().text = team + "方勝利\n是否再來一局?";
     }
 }

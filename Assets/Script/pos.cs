@@ -117,7 +117,8 @@ public class pos : MonoBehaviour
             }
         }
         Debug.Log("=============================================");
-        if (CheckKingGotKill())
+        //Debug.Log("F2F: " + CheckKingFace2Face());
+        if (CheckKingGotKill() || CheckKingFace2Face())
         {
             _winnerAlertPanel.gameObject.SetActive(true);
         }
@@ -964,6 +965,32 @@ public class pos : MonoBehaviour
         else
         {
             return true;
+        }
+    }
+
+    public static bool CheckKingFace2Face()
+    {
+        int jiangInd = Array.IndexOf(mgr._arrPos, 1);
+        int shuoInd = Array.IndexOf(mgr._arrPos, 17);
+        int counter = 0;
+        int lastInd = 0;
+
+        for (int i = jiangInd; i>0; i=i-9)
+        {
+            if (mgr._arrPos[i] > 0)
+            {
+                counter++;
+                lastInd = i;
+            }
+        }
+
+        if ((counter == 2) && mgr._arrPos[lastInd] == 17)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
